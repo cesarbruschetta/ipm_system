@@ -1,0 +1,42 @@
+{% extends "core/base/base.html" %}
+
+
+{% block head %}
+    {{ form.media }}
+{% endblock head %}
+
+{% block content %}
+    <div>
+
+        <div class="row">
+            <div class="col-sm-12 col-lg-6">
+                {% if is_edit %}
+                    <h3>Edição do Hardware: {{ hardware.name }}</h3>
+                {% else %}
+                    <h3>Inclusão de Hardware</h3>
+                {% endif %}
+            </div>
+        </div>
+        <hr />
+
+        <form action="" method="POST" >{% csrf_token %}
+            {% for field in form %}
+
+             <div class="form-group">
+                {%if not field.is_hidden %}
+                    <label for="{{ field.name }}">{{ field.label }} </label>
+                {% endif %}
+                {{ field.errors }}
+                {{ field }}
+              </div>
+
+            {% endfor %}
+            <div>
+                {% if is_edit %}
+                    <a class="btn btn-primary" href="{% url 'view_customer' customer.id %}">Voltar</a>
+                {% endif %}
+                <input type="submit" class="btn btn-success" name="submitted" value="Salvar" />
+            </div>
+        </form>
+    </div>
+{% endblock %}

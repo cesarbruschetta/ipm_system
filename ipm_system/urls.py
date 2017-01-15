@@ -24,7 +24,7 @@ from ipm_system.core import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^core/', include('ipm_system.core.urls')),
-    
+
     url(r'^404/?$', defaults.page_not_found, name="404"),
     url(r'^500/?$', defaults.server_error, name="500"),
 
@@ -33,8 +33,6 @@ urlpatterns = [
 
 
 ]
-
-
 
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,67 @@
+{% extends "core/base/base.html" %}
+
+{% block content %}
+
+    <div id="dash-board">
+        <div class="row">
+            <div class="col-sm-12 col-lg-6">
+                <h3>Cliente: {{ customer.name }} </h3>
+             </div>
+            <div class="col-sm-12 col-lg-6">
+                <div class="right">
+                    <a href="{% url 'edit_customer' customer.id  %}">
+                        <span class="label label-warning">Editar</span></a>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <h4 class="left">Hardwares</h4>
+        <div class="row">
+            <div class="col-sm-12 col-lg-6">
+                {% include 'core/include/search.html' %}
+            </div>
+            <div class="col-sm-12 col-lg-6 right">
+                <a class="btn btn-sm btn-primary" href="{% url 'edit_hardware' customer.id 'add' %}">Adicionar Hardware</a>
+            </div>
+
+        </div>
+        <table id="tabela" class="table table-striped">
+            <thead>
+                <tr>
+                    <th >
+                        <span>Nome</span>
+                    </th>
+                    <th >
+                        <span>Chave</span>
+                    </th>
+
+                    <th >
+                        
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for hardware in hardwares %}
+                    <tr >
+                        <td >
+                            <a href="{% url 'edit_hardware' customer.id hardware.id %}">{{ hardware.name }}</a>
+                        </td>
+                        <td >
+                            <span>{{ hardware.chave }}</span>
+                        </td>
+                        <td >
+                           
+                        </td>
+                    </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        <div class="pagination">
+            {% with itens=hardwares %}
+                {% include 'core/include/pagination.html' %}
+            {% endwith %}
+        </div>
+
+    </div>
+{% endblock %}

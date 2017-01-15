@@ -1,0 +1,26 @@
+{% load tools %}
+<ul class="pagination">
+
+    <li class="arrow {% if not itens.has_previous %}unavailable {% endif %}">
+        {% if itens.has_previous %}
+            <a href="{{ request.build_absolute_uri|page_request_get:itens.previous_page_number }}">&laquo;</a>
+        {% else %}
+            <a href="">&laquo;</a>
+        {% endif %}
+    </li>
+
+    {% for p in itens.paginator.page_range %}
+        <li class="{% if p == itens.number %}current{% endif %}" >
+            <a href="{{ request.build_absolute_uri|page_request_get:p }}">{{ p }}</a>
+        </li>
+    {% endfor %}
+
+  <li class="arrow {% if not itens.has_next %}unavailable{% endif %}">
+    {% if itens.has_next %}
+        <a href="{{ request.build_absolute_uri|page_request_get:itens.next_page_number }}">&raquo;</a>
+    {% else %}
+        <a href="">&raquo;</a>
+    {% endif %}
+  </li>
+
+</ul>
