@@ -17,8 +17,8 @@ build
 
 # Logs:
 *.log
-./media/
-./static/
+media
+static
 .DS_Store
 __pycache__
 

@@ -9,7 +9,7 @@ from ipm_system.core.models import Customer
 def view_customer(request, id_customer):
     context = {}
     template = 'core/view_customer.html'
-    size = 10
+    size = 5
 
     try:
         obj_customer = Customer.objects.get(pk=id_customer)

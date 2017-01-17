@@ -8,7 +8,7 @@ from ipm_system.core.models import Customer
 def list_customer(request):
     template = 'core/list_customer.html'
     context = {}
-    size = 10
+    size = 5
 
     customers = Customer.objects.filter()
 

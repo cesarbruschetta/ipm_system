@@ -30,7 +30,9 @@ class Hardware(models.Model):
     def save(self, *args, **kwargs):
         if not self.key:
             h = hashlib.md5()
-            h.update(self.__unicode__())
+            h.update(
+                self.__unicode__().encode('utf-8')
+            )
 
             self.key = h.hexdigest()
         super(Hardware, self).save(*args, **kwargs)
