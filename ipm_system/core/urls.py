@@ -1,6 +1,7 @@
 from django.conf.urls import url
 
-from .views import home, list_customer, edit_customer, view_customer, edit_hardware
+from .views import (home, list_customer, edit_customer,
+                    view_customer, edit_hardware, download_license)
 
 urlpatterns = [
 
@@ -14,5 +15,6 @@ urlpatterns = [
         edit_customer, name='edit_customer'),
     url(r'^customer/(?P<id_customer>\d+)/hardware/(?P<id_hardware>[add|\d]+)/edit$',
         edit_hardware, name='edit_hardware'),
-
+    url(r'^customer/(?P<id_customer>\d+)/hardware/(?P<id_hardware>\d+)/download_license$',
+        download_license, name='download_license'),
 ]

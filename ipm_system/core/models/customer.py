@@ -16,5 +16,8 @@ class Customer(models.Model):
     name = models.CharField(verbose_name="Nome",
                             default="", max_length=255)
 
+    def __unicode__(self):
+        return u"Cliente - %s" % (self.name)
+
     def get_hardwares(self):
         return self.hardware_set.all()

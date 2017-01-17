@@ -12,8 +12,8 @@ def list_customer(request):
 
     customers = Customer.objects.filter()
 
-    if 'text_search' in request.REQUEST.keys():
-        text_search = request.REQUEST.get('text_search')
+    if 'text_search' in request.GET.keys():
+        text_search = request.GET.get('text_search')
         customers = customers.filter(name__icontains=text_search)
 
     customers_pag = Paginator(customers, size)

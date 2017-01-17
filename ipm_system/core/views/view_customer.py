@@ -18,8 +18,8 @@ def view_customer(request, id_customer):
 
     hardwares = obj_customer.get_hardwares()
 
-    if 'text_search' in request.REQUEST.keys():
-        text_search = request.REQUEST.get('text_search')
+    if 'text_search' in request.GET.keys():
+        text_search = request.GET.get('text_search')
         hardwares = hardwares.filter(name__icontains=text_search)
 
     hardwares_pag = Paginator(hardwares, size)

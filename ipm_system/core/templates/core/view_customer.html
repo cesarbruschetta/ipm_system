@@ -48,10 +48,10 @@
                             <a href="{% url 'edit_hardware' customer.id hardware.id %}">{{ hardware.name }}</a>
                         </td>
                         <td >
-                            <span>{{ hardware.chave }}</span>
+                            <span>{{ hardware.key }}</span>
                         </td>
                         <td >
-                           
+                           <a class="btn btn-sm btn-info"  href="{% url 'download_license' customer.id hardware.id %}">Baixar licença</a>
                         </td>
                     </tr>
                 {%endfor%}

@@ -7,6 +7,5 @@ def home(request):
 
     context = {
         'title_page': 'Home',
-        'highlights_list': "",
     }
     return render(request, 'core/index.html', context)

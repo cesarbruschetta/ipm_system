@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
-from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
@@ -12,7 +11,7 @@ from ipm_system.core.models import Customer
 def edit_customer(request, id_customer):
     context = {}
     template = 'core/edit_customer.html'
-    form_request = request.REQUEST
+    form_request = request.POST
     form = None
     instance = None
 

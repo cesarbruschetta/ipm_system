@@ -1,5 +1,5 @@
 <div >
     <form action="" id="search_itens">
-        <input type="text" value="{{ request.REQUEST.text_search|default:'' }}" class="form-control" name="text_search" placeholder="Buscar....">
+        <input type="text" value="{{ request.GET.text_search|default:'' }}" class="form-control" name="text_search" placeholder="Buscar....">
     </form>
 </div>

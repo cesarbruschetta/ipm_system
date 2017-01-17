@@ -11,7 +11,7 @@ from ipm_system.core.models import Hardware, Customer
 def edit_hardware(request, id_customer, id_hardware):
     context = {}
     template = 'core/edit_hardware.html'
-    form_request = request.REQUEST
+    form_request = request.POST
     form = None
     instance = None
 

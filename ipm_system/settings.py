@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     "ipm_system.core"
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -151,6 +151,9 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(PROJECT_DIR, "core/static"),
 )
+
+ENCRYPTED_FIELDS_KEYDIR = '{0}/core/crypto_keys'.format(PROJECT_DIR)
+
 
 # Logging
 #
